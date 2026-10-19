@@ -57,8 +57,8 @@ regression-model-skill/
 ├── SKILL.md                              分析流程、互動原則與交付要求
 ├── requirements.txt                      基礎 Python 套件需求
 ├── references/
-│   ├── decision-tree.md                   缺失處理、EDA 與模型選擇決策樹
-│   ├── decision tree.png                  決策樹圖片參考
+│   ├── decision-tree.md                  缺失處理、EDA 與模型選擇決策樹
+│   ├── decision tree.png                 決策樹圖片參考
 │   ├── methods.md                        各方法的適用情境與限制
 │   ├── textbook-methods.md               模型形式、估計原理與係數解讀
 │   ├── linear_models_math_textbook.qmd   原始教材參考
