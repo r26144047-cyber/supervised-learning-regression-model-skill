@@ -158,3 +158,7 @@ PDF 採醒目結論、大圖與短段落的諮詢簡報風格。每張圖標示�
 
 - ChatGPT：協助修改 skill 與開發。
 - Claude：協助測試與驗證。
+
+## 教科書參考文獻
+
+James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). *An Introduction to Statistical Learning: with Applications in R* (2nd ed.). Springer.
