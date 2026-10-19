@@ -55,7 +55,6 @@ EDA 圖表與解讀納入報告；插補及 EDA 繪圖程式完整列入報告�
 ```text
 regression-model-skill/
 ├── SKILL.md                              分析流程、互動原則與交付要求
-├── README.md                             使用說明
 ├── requirements.txt                      基礎 Python 套件需求
 ├── references/
 │   ├── decision-tree.md                   缺失處理、EDA 與模型選擇決策樹
