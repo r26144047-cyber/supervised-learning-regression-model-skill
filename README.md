@@ -9,7 +9,7 @@
 ## 模型選擇決策樹
 
 ```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'linear', 'nodeSpacing': 25, 'rankSpacing': 45}, 'themeVariables': {'fontSize': '16px'}}}%%
+%%{init: {'theme': 'base', 'flowchart': {'curve': 'linear', 'nodeSpacing': 25, 'rankSpacing': 45}, 'themeVariables': {'darkMode': true, 'background': '#0d1117', 'fontSize': '16px', 'primaryColor': '#172554', 'primaryTextColor': '#f1f5f9', 'primaryBorderColor': '#60a5fa', 'secondaryColor': '#292015', 'tertiaryColor': '#1e293b', 'lineColor': '#cbd5e1', 'textColor': '#f1f5f9', 'edgeLabelBackground': '#1e293b'}}}%%
 flowchart TB
  START([開始：上傳 CSV／Excel])
  START --> A["① 使用者勾選欄位<br/>Y 單選、X 多選<br/>確認時間順序、群組與重複測量結構"]
@@ -48,14 +48,17 @@ flowchart TB
  N -- 是 --> N0(["提出 Skill 外替代方法與理由<br/>明確說明不支援其擬合與調參<br/>輸出已完成結果，停止自動修正"])
  O --> END([完成])
 
- classDef terminal fill:#164e63,color:#ffffff,stroke:#164e63,stroke-width:3px;
- classDef main fill:#eff6ff,color:#172554,stroke:#60a5fa;
- classDef decision fill:#fffbeb,color:#78350f,stroke:#f59e0b;
- classDef note fill:#f8fafc,color:#334155,stroke:#94a3b8;
+ classDef terminal fill:#155e75,color:#ffffff,stroke:#67e8f9,stroke-width:3px;
+ classDef main fill:#172554,color:#eff6ff,stroke:#60a5fa,stroke-width:1.5px;
+ classDef decision fill:#36270f,color:#fef3c7,stroke:#fbbf24,stroke-width:2px;
+ classDef note fill:#1e293b,color:#e2e8f0,stroke:#94a3b8,stroke-width:1.5px;
+
  class START,END terminal;
  class A,B,C,E,F1,F2,H,J,L,M,O main;
  class D,F,G,I,I1,I3,K,N decision;
  class D0,F3,G0,I0,I2,I4,I5,K0,N0 note;
+
+ linkStyle default stroke:#cbd5e1,stroke-width:1.5px;
 ```
 
 ## 涵蓋的模型
