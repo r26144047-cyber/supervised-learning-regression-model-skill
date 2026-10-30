@@ -185,10 +185,8 @@ regression-model-skill/
 │   ├── linear_models_math_textbook.html  教材網頁版
 │   └── report-spec.md                    成果報告規格
 ├── scripts/
-│   ├── run_regression.py                 資料檢查、EDA、診斷與模型分析
-│   └── build_qmd.py                      將完整分析程式填入報告草稿
-└── examples/
-    └── USJudgeRatings.csv                美國法官評分示範資料
+    ├── run_regression.py                 資料檢查、EDA、診斷與模型分析
+    └── build_qmd.py                      將完整分析程式填入報告草稿
 ```
 
 ## 環境準備與使用（Claude）
