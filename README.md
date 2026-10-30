@@ -6,6 +6,20 @@
 
 **主要流程：資料確認 → 資料檢查與離群候選檢查 → 確認前處理 → EDA → 判斷 Y 類型 → 推薦並確認模型 → 擬合與診斷 → 必要時確認修正 → 確認 AIC 搜尋方案與選模 → 成果報告。**
 
+## 涵蓋的模型
+
+| 方法 | 適用情境 |
+|---|---|
+| Linear regression | 連續 Y，作為線性關係的基準模型 |
+| Polynomial regression | 連續 Y，且資料呈現平滑曲線趨勢 |
+| Logistic regression | 二元 Y，估計正類事件機率 |
+| Ridge regression | 連續 Y，需收縮係數或改善共線性下的穩定性 |
+| Lasso regression | 連續 Y，需收縮係數並精簡變數 |
+| Ridge Logistic | 二元 Y，採 L2 懲罰的 Logistic |
+| Lasso Logistic | 二元 Y，採 L1 懲罰的 Logistic |
+
+五種主要方法，包含二元結果的兩種正則化延伸。其他 Y 型態會先說明支援範圍，不直接套用上述模型。
+
 ## 模型選擇決策樹
 
 ```mermaid
@@ -61,19 +75,7 @@ flowchart TB
  linkStyle default stroke:#cbd5e1,stroke-width:1.5px;
 ```
 
-## 涵蓋的模型
 
-| 方法 | 適用情境 |
-|---|---|
-| Linear regression | 連續 Y，作為線性關係的基準模型 |
-| Polynomial regression | 連續 Y，且資料呈現平滑曲線趨勢 |
-| Logistic regression | 二元 Y，估計正類事件機率 |
-| Ridge regression | 連續 Y，需收縮係數或改善共線性下的穩定性 |
-| Lasso regression | 連續 Y，需收縮係數並精簡變數 |
-| Ridge Logistic | 二元 Y，採 L2 懲罰的 Logistic |
-| Lasso Logistic | 二元 Y，採 L1 懲罰的 Logistic |
-
-五種主要方法，包含二元結果的兩種正則化延伸。其他 Y 型態會先說明支援範圍，不直接套用上述模型。
 
 ## 模型推薦的判斷方式
 
