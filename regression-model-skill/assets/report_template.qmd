@@ -1,0 +1,121 @@
+---
+title: "（報告標題）"
+subtitle: "（資料名稱）迴歸分析報告"
+date: today
+lang: zh-TW
+jupyter: python3
+execute:
+  echo: false
+  warning: false
+  error: false
+format:
+  pdf:
+    pdf-engine: xelatex
+    toc: true
+    number-sections: true
+    code-overflow: wrap
+    fig-pos: "H"
+    include-in-header:
+      text: |
+        \usepackage{xeCJK}
+        \newif\ifcjkfound
+        \newcommand{\trycjk}[1]{\ifcjkfound\else\IfFontExistsTF{#1}{\setCJKmainfont{#1}\setCJKsansfont{#1}\setCJKmonofont{#1}\global\cjkfoundtrue}{}\fi}
+        \trycjk{Microsoft JhengHei}
+        \trycjk{Microsoft YaHei}
+        \trycjk{PingFang TC}
+        \trycjk{Heiti TC}
+        \trycjk{Noto Sans CJK TC}
+        \trycjk{Noto Sans CJK JP}
+        \trycjk{Noto Sans CJK SC}
+        \trycjk{Source Han Sans TC}
+        \trycjk{WenQuanYi Zen Hei}
+        \ifcjkfound\else
+          \typeout{WARNING: no system CJK font found; falling back to FandolHei (some Traditional Chinese glyphs may be missing)}
+          \setCJKmainfont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+          \setCJKsansfont[BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+          \setCJKmonofont{FandolHei-Regular.otf}
+        \fi
+        % 讓 ≥ ≤ σ 等符號（含程式碼區塊）改用上面找到的中文字型，避免等寬字型缺字；不使用 newunicodechar
+        \xeCJKDeclareCharClass{CJK}{"2264, "2265, "0391 -> "03C9}
+        % 程式碼自動換行（PDF 中 code-overflow: wrap 不會生效），避免長行超出頁面被截斷
+        \usepackage{fvextra}
+        \fvset{breaklines=true,breakanywhere=true,fontsize=\footnotesize}
+        \catcode`\≥=\active \protected\def≥{\ensuremath{\geq}}
+        \catcode`\≤=\active \protected\def≤{\ensuremath{\leq}}
+    include-before-body:
+      text: |
+        % 完整程式碼區塊很長，framed 底色框會造成 Dimension too large，故取消底色框
+        \makeatletter
+        \@ifundefined{Shaded}{}{\renewenvironment{Shaded}{}{}}
+        \makeatother
+---
+
+```{python}
+#| label: analysis
+#| include: false
+# 渲染時執行完整分析（與最後一節展示的程式碼完全相同），產生本報告全部圖表與表格。
+# @@ANALYSIS_CODE@@
+```
+
+```{python}
+#| include: false
+# 正文引用的關鍵數值，一律從本次執行結果讀取，不手動抄寫。
+final = result("fit_final/fit.json")["摘要"]
+```
+
+# 研究問題
+
+（背景、觀測單位、Y／X、時間或群組結構、分析目的；未知資訊標示「未提供」。）
+
+# 重點結果與建議
+
+（先回答研究問題。數值用行內程式碼帶入，例如：最終模型的 AIC 為 `{python} f"{final['AIC']:.2f}"`。）
+
+# 資料與方法
+
+```{python}
+#| output: asis
+table("inspect/missing_plan.csv", columns=["欄位", "角色", "缺失筆數", "缺失比例", "建議處理"])
+```
+
+# EDA 探索性資料分析
+
+```{python}
+#| fig-cap: "X 與 Y 的關係（前處理後）"
+fig("eda/eda_xy.png")
+```
+
+（每張圖後附白話解讀。）
+
+# 模型結果與診斷
+
+```{python}
+#| output: asis
+table("fit_final/coefficients.csv", digits=4)
+```
+
+```{python}
+#| fig-cap: "最終模型的殘差 vs 配適值與常態 Q-Q 圖"
+# 圖檔名稱依模型而定：Linear／Polynomial 為 residual_diagnostics.png；
+# Ridge／Lasso 為 residual_plot.png；Logistic 類為 confusion_matrix.png、probability_hist.png。
+# Linear／Polynomial 另有 fit_final/diagnostics.csv（檢定表）。
+fig("fit_final/residual_diagnostics.png")
+```
+
+# 限制
+
+（遺漏因素、代表性、模型形式、未檢查事項、AIC 近似、未做獨立預測評估、支援邊界。）
+
+# 附錄
+
+（公式、其他診斷圖與 EDA 圖、套件版本、資料 SHA-256、重現方式。）
+
+# 完整 Python 程式碼
+
+以下程式與報告開頭隱藏執行的程式完全相同，可單獨存成 `.py` 在終端機執行，或貼進 Jupyter 單一儲存格執行，以重現全部數值與圖表。
+
+```{python}
+#| eval: false
+#| echo: true
+# @@ANALYSIS_CODE@@
+```
