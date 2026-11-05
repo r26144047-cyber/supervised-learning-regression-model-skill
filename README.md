@@ -71,7 +71,7 @@ flowchart TB
  I4 --> I5(["停止自動修正<br/>輸出現有診斷、限制與下一步建議"])
 
  J --> K{"概似與自由度定義<br/>適用且已獲確認？"}
- K -- 是 --> L["⑧ 使用 AIC 選模；全程不使用 CV<br/>Linear：比較候選設定<br/>Polynomial：選多項式次數<br/>Ridge／Lasso：以有效自由度的近似 AIC 選 λ<br/>懲罰式 Logistic：須有適用的有效自由度實作"]
+ K -- 是 --> L["⑧ 使用 AIC 選模<br/>Linear：比較候選設定<br/>Polynomial：選多項式次數<br/>Ridge／Lasso：以有效自由度的近似 AIC 選 λ<br/>懲罰式 Logistic：須有適用的有效自由度實作"]
  K -- 否 --> K0(["停止不適用的 AIC 比較<br/>說明原因、支援限制並輸出現有結果"])
  L --> M["⑨ 呈現並確認選模結果<br/>候選 AIC、與最小值的差值、有效自由度及選定參數<br/>Box–Cox"]
  M --> N{"最終模型診斷<br/>仍有重要問題？"}
