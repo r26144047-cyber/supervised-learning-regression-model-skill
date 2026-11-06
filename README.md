@@ -196,7 +196,7 @@ regression-model-skill/
 │   └── report_template.qmd               Quarto 報告範本與跨平台字型設定
 ├── references/
 │   ├── decision-tree.md                  完整互動流程與模型選擇決策樹
-│   ├── decision-tree.png                 README 嵌入的決策樹圖片
+│   ├── decision-tree.png                 決策樹圖片
 │   ├── textbook method.md                方法、公式與係數解讀
 │   ├── linear_models_math_textbook.qmd   教材 Quarto 原始檔
 │   ├── linear_models_math_textbook.html  教材網頁版
